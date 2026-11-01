@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- 4K DESERT NIGHT WALLPAPER -->
+    <ImageView
+        android:id="@+id/wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wallpaper_desert"
+        android:contentDescription="Wallpaper" />
+
+    <!-- SUBTLE GRADIENT VIGNETTE OVERLAY -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_vignette" />
+
+    <!-- TOP-LEFT DIGITAL CLOCK -->
+    <LinearLayout
+        android:id="@+id/clockContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <TextClock
+            android:id="@+id/clockHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:textSize="56sp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/time_active"
+            android:includeFontPadding="false" />
+
+        <TextView
+            android:id="@+id/clockColon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="22sp"
+            android:textColor="@color/time_seconds"
+            android:layout_marginStart="4dp"
+            android:includeFontPadding="false" />
+
+        <TextClock
+            android:id="@+id/clockSeconds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format12Hour="ss"
+            android:format24Hour="ss"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/time_seconds"
+            android:layout_marginStart="2dp"
+            android:includeFontPadding="false" />
+    </LinearLayout>
+
+    <!-- TOP-RIGHT ACTION BUTTONS (WiFi, Kill All Apps, Clean Memory) -->
+    <LinearLayout
+        android:id="@+id/topActionsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- 1. WiFi Button -->
+        <FrameLayout
+            android:id="@+id/btn_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusDown="@id/app_smarttube"
+            android:nextFocusRight="@id/btn_kill_apps"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_wifi"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_wifi"
+                android:contentDescription="WiFi Settings" />
+        </FrameLayout>
+
+        <!-- 2. Kill All Apps Button -->
+        <FrameLayout
+            android:id="@+id/btn_kill_apps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusDown="@id/app_stremio"
+            android:nextFocusLeft="@id/btn_wifi"
+            android:nextFocusRight="@id/btn_clean_ram"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_kill_apps"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_kill_apps"
+                android:contentDescription="Kill All Open Apps" />
+        </FrameLayout>
+
+        <!-- 3. Clean Memory Button -->
+        <FrameLayout
+            android:id="@+id/btn_clean_ram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusDown="@id/app_iptv"
+            android:nextFocusLeft="@id/btn_kill_apps"
+            android:nextFocusRight="@id/btn_tv_inputs"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_clean_ram"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_clean_ram"
+                android:contentDescription="Clean Memory" />
+        </FrameLayout>
+
+        <!-- 4. TV Inputs Button -->
+        <FrameLayout
+            android:id="@+id/btn_tv_inputs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusDown="@id/app_settings"
+            android:nextFocusLeft="@id/btn_clean_ram"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_tv_inputs"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_hdmi"
+                android:contentDescription="TV Input Sources" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- BOTTOM APP SELECTOR - PURE TRANSPARENT (NO BLACK RECTANGLE) -->
+    <LinearLayout
+        android:id="@+id/appsRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="54dp"
+        android:orientation="horizontal"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- SmartTube -->
+        <LinearLayout
+            android:id="@+id/app_smarttube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="12dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusUp="@id/btn_wifi"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_smarttube"
+                android:contentDescription="SmartTube" />
+
+            <TextView
+                android:id="@+id/text_smarttube"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="SmartTube"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_inactive" />
+        </LinearLayout>
+
+        <!-- Stremio -->
+        <LinearLayout
+            android:id="@+id/app_stremio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="12dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusUp="@id/btn_kill_apps"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_stremio"
+                android:contentDescription="Stremio" />
+
+            <TextView
+                android:id="@+id/text_stremio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Stremio"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_inactive" />
+        </LinearLayout>
+
+        <!-- King IPTV -->
+        <LinearLayout
+            android:id="@+id/app_iptv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="12dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusUp="@id/btn_clean_ram"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_iptv"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_iptv"
+                android:contentDescription="IPTV" />
+
+            <TextView
+                android:id="@+id/text_iptv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="King IPTV"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_inactive" />
+        </LinearLayout>
+
+        <!-- Settings -->
+        <LinearLayout
+            android:id="@+id/app_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="12dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:nextFocusUp="@id/btn_tv_inputs"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_settings"
+                android:contentDescription="Settings" />
+
+            <TextView
+                android:id="@+id/text_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Settings"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_inactive" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- FLOATING GLASSMORHPIC WI-FI PANEL (iOS Control Center Style) -->
+    <FrameLayout
+        android:id="@+id/wifiPanelContainer"
+        android:layout_width="340dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="24dp"
+        android:elevation="36dp"
+        android:visibility="gone"
+        android:clipChildren="true"
+        android:clipToPadding="false">
+
+        <!-- 1. Real Frosted Blur Backdrop (Cropped Desert Wallpaper Slice) -->
+        <ImageView
+            android:id="@+id/wifiPanelBackdrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="Glass Backdrop" />
+
+        <!-- 2. Obsidian Glass Tint & 1.5dp Cut-Glass Luminous Rim -->
+        <View
+            android:id="@+id/wifiPanelGlassOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_wifi_side_panel" />
+
+        <!-- 3. Glass Panel Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <!-- Top Header (Fixed at top of panel) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Wi-Fi"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#FFFFFF" />
+
+                <!-- Rescan Button -->
+                <FrameLayout
+                    android:id="@+id/btn_wifi_rescan"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:background="@drawable/bg_glass_btn_circle"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/icon_rescan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_refresh"
+                        android:contentDescription="Rescan" />
+                </FrameLayout>
+
+                <!-- Close Button -->
+                <FrameLayout
+                    android:id="@+id/btn_wifi_close"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="8dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:background="@drawable/bg_glass_btn_circle"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/icon_close"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_close"
+                        android:contentDescription="Close" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Hairline Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:background="#20FFFFFF" />
+
+            <!-- ONE UNIFIED SCROLLVIEW TO PREVENT ANY OVERLAPPING -->
+            <ScrollView
+                android:id="@+id/wifiScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Current Connected Network Section (Inside ScrollView) -->
+                    <LinearLayout
+                        android:id="@+id/currentNetworkSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CURRENT NETWORK"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.10"
+                            android:textColor="#8E9DAE" />
+
+                        <!-- Active Network Card -->
+                        <LinearLayout
+                            android:id="@+id/card_current_network"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:padding="14dp"
+                            android:focusable="true"
+                            android:clickable="true"
+                            android:background="@drawable/bg_wifi_card">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:src="@drawable/ic_wifi"
+                                    android:contentDescription="Connected" />
+
+                                <TextView
+                                    android:id="@+id/panel_wifi_ssid"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="10dp"
+                                    android:text="Scanning..."
+                                    android:textSize="15sp"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="#FFFFFF" />
+
+                                <!-- Status dot -->
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:background="@drawable/dot_active_green" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/panel_wifi_details"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginStart="28dp"
+                                android:text="Connected • 5 GHz • 468 Mbps"
+                                android:textSize="11sp"
+                                android:textColor="#9EABB8" />
+
+                            <!-- Action row (Forget / Disconnect) -->
+                            <LinearLayout
+                                android:id="@+id/current_network_actions"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:id="@+id/btn_forget_current"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:focusable="true"
+                                    android:clickable="true"
+                                    android:background="@drawable/bg_wifi_btn_secondary"
+                                    android:paddingStart="12dp"
+                                    android:paddingEnd="12dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="Forget"
+                                    android:textSize="11sp"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="#E0E6ED" />
+
+                                <TextView
+                                    android:id="@+id/btn_disconnect_current"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:focusable="true"
+                                    android:clickable="true"
+                                    android:background="@drawable/bg_wifi_btn_secondary"
+                                    android:paddingStart="12dp"
+                                    android:paddingEnd="12dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="Disconnect"
+                                    android:textSize="11sp"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="#E0E6ED" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Password Entry Card -->
+                    <LinearLayout
+                        android:id="@+id/passwordCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:background="@drawable/bg_wifi_card"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/passwordTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Connect to Network"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Enter password to join this Wi-Fi network"
+                            android:textSize="11sp"
+                            android:textColor="#9EABB8" />
+
+                        <EditText
+                            android:id="@+id/input_wifi_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_wifi_input"
+                            android:hint="Password..."
+                            android:textColorHint="#60FFFFFF"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:inputType="textPassword"
+                            android:imeOptions="actionDone"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:singleLine="true" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="horizontal"
+                            android:gravity="end|center_vertical">
+
+                            <TextView
+                                android:id="@+id/btn_system_setup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:focusable="true"
+                                android:clickable="true"
+                                android:background="@drawable/bg_wifi_btn_secondary"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="TV Setup"
+                                android:textSize="11sp"
+                                android:textColor="#A0B0C0" />
+
+                            <TextView
+                                android:id="@+id/btn_cancel_password"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:focusable="true"
+                                android:clickable="true"
+                                android:background="@drawable/bg_wifi_btn_secondary"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="Cancel"
+                                android:textSize="11sp"
+                                android:textColor="#FFFFFF" />
+
+                            <TextView
+                                android:id="@+id/btn_connect_password"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:focusable="true"
+                                android:clickable="true"
+                                android:background="@drawable/bg_wifi_btn_primary"
+                                android:paddingStart="14dp"
+                                android:paddingEnd="14dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:text="Connect"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="#10141D" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Section Title: Available Networks -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="AVAILABLE NETWORKS"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.10"
+                        android:textColor="#788696" />
+
+                    <!-- Container for Reachable Wi-Fi Networks -->
+                    <LinearLayout
+                        android:id="@+id/wifiListContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Outer TV screen -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#140808"
+        android:pathData="M2,7 L22,7 A2,2 0 0,1 24,9 L24,20 A2,2 0 0,1 22,22 L2,22 A2,2 0 0,1 0,20 L0,9 A2,2 0 0,1 2,7 Z" />
+    <!-- Antennas -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M17,2 L12,7 L7,2" />
+    <!-- Play Triangle -->
+    <path
+        android:fillColor="#FF2A2A"
+        android:strokeColor="#FF2A2A"
+        android:strokeWidth="1"
+        android:pathData="M10,11 L15,14.5 L10,18 Z" />
+</vector>

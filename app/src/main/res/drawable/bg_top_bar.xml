@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Dark glass surface -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F007090E" />
+        </shape>
+    </item>
+    <!-- 1px bottom subtle border line -->
+    <item android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <size android:height="1dp" />
+            <solid android:color="#30FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

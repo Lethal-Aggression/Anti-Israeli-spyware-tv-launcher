@@ -1,0 +1,2 @@
+-keep class com.d4cx.tvlauncher.** { *; }
+-dontwarn **

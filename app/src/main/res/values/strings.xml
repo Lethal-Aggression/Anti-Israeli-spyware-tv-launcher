@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Elite Launcher</string>
+    <string name="accessibility_desc">Intercepts TV Input key to display the custom top input selector</string>
+</resources>

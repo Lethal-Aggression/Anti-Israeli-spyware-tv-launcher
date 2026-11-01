@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlayRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- FLOATING INPUT BAR - MOVED CLOSER TO TOP (14dp), PURE TRANSPARENT (NO BG), WIDE SPACING -->
+    <LinearLayout
+        android:id="@+id/topInputBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- 1. Home (Returns to Custom Launcher) -->
+        <LinearLayout
+            android:id="@+id/input_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:nextFocusDown="@id/input_home"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_home"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_google_home"
+                android:contentDescription="Home" />
+
+            <TextView
+                android:id="@+id/text_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Home"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#88FFFFFF"
+                android:includeFontPadding="false" />
+        </LinearLayout>
+
+        <!-- 2. HDMI 1 -->
+        <LinearLayout
+            android:id="@+id/input_hdmi1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:nextFocusDown="@id/input_hdmi1"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_hdmi1"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_hdmi"
+                android:contentDescription="HDMI 1" />
+
+            <TextView
+                android:id="@+id/text_hdmi1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="HDMI 1"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#88FFFFFF"
+                android:includeFontPadding="false" />
+
+            <View
+                android:id="@+id/dot_hdmi1"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/dot_active_green"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 3. HDMI 2 -->
+        <LinearLayout
+            android:id="@+id/input_hdmi2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:nextFocusDown="@id/input_hdmi2"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_hdmi2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_hdmi"
+                android:contentDescription="HDMI 2" />
+
+            <TextView
+                android:id="@+id/text_hdmi2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="HDMI 2"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#88FFFFFF"
+                android:includeFontPadding="false" />
+
+            <View
+                android:id="@+id/dot_hdmi2"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/dot_active_green"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 4. HDMI 3 -->
+        <LinearLayout
+            android:id="@+id/input_hdmi3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:nextFocusDown="@id/input_hdmi3"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_hdmi3"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_hdmi"
+                android:contentDescription="HDMI 3" />
+
+            <TextView
+                android:id="@+id/text_hdmi3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="HDMI 3"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#88FFFFFF"
+                android:includeFontPadding="false" />
+
+            <View
+                android:id="@+id/dot_hdmi3"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/dot_active_green"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 5. AV -->
+        <LinearLayout
+            android:id="@+id/input_av"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:nextFocusDown="@id/input_av"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_av"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_av"
+                android:contentDescription="AV" />
+
+            <TextView
+                android:id="@+id/text_av"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="AV"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#88FFFFFF"
+                android:includeFontPadding="false" />
+
+            <View
+                android:id="@+id/dot_av"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/dot_active_green"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 6. TV -->
+        <LinearLayout
+            android:id="@+id/input_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:clickable="true"
+            android:paddingStart="14dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:nextFocusDown="@id/input_tv"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/icon_tv"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_tv_antenna"
+                android:contentDescription="TV" />
+
+            <TextView
+                android:id="@+id/text_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="TV"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#88FFFFFF"
+                android:includeFontPadding="false" />
+
+            <View
+                android:id="@+id/dot_tv"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/dot_active_green"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>
